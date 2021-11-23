@@ -3,7 +3,6 @@ import pandas as pd
 import os
 from flask_sqlalchemy import SQLAlchemy
 import numpy as np
-from setupdb import DB_HOST,DB_NAME,DB_PASS,DB_PORT,DB_USER,DB_string
 import feedparser
 from sqlalchemy.orm import Session
 
@@ -16,7 +15,7 @@ app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','') or f"postgresql://{DB_string}"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','')
 db = SQLAlchemy(app)
 
 # reflect an existing database into a new model
